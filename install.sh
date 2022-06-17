@@ -26,3 +26,8 @@ yum install chromium -y
 rpm --import https://dl-ssl.google.com/linux/linux_signing_key.pub
 sh -c 'echo -e "[google64]\nname=Google - x86_64\nbaseurl=http://dl.google.com/linux/rpm/stable/x86_64\nenabled=1\ngpgcheck=1\ngpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub" > /etc/yum.repos.d/google-chrome.repo'
 yum install google-chrome-stable -y
+
+#Install edge
+sh -c 'echo -e "[edge]\nname=microsoft-edge\nbaseurl=https://packages.microsoft.com/yumrepos/edge\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/edge.repo'
+yum check-update
+yum install microsoft-edge-stable -y
