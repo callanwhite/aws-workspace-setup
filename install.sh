@@ -9,6 +9,7 @@ yum install code -y
 #Make sure to update the placeholders!
 git config --global user.name "YOUR NAME"
 git config --global user.email "YOUR EMAIL"
+git config --global http.sslVerify false
 
 #Install nano because my fingers are too clumsy for vi(m)
 yum install nano -y
