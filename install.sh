@@ -5,14 +5,16 @@ sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.micros
 yum check-update
 yum install code -y
 
+#Install nano because my fingers are too clumsy for vi(m)
+yum install nano -y
+
 #Set some basic git config
 #Make sure to update the placeholders!
 git config --global user.name "YOUR NAME"
 git config --global user.email "YOUR EMAIL"
 git config --global http.sslVerify false
-
-#Install nano because my fingers are too clumsy for vi(m)
-yum install nano -y
+git config --global credential.helper 'store --file ~/.my-git-credentials'
+git config --global core.editor "nano"
 
 #Install node/npm (v16) and angular
 curl -sL https://rpm.nodesource.com/setup_16.x | bash -
@@ -32,3 +34,16 @@ yum install google-chrome-stable -y
 sh -c 'echo -e "[edge]\nname=microsoft-edge\nbaseurl=https://packages.microsoft.com/yumrepos/edge\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/edge.repo'
 yum check-update
 yum install microsoft-edge-stable -y
+
+#Install sdkman
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+#Install Java via sdkman
+#sdk install java 8.0.302-open
+#sdk use java 8.0.302-open
+
+#Install Gradle via sdkman
+#sdk install gradle 6.7.1
+#sdk install gradle 3.5
+#sdk use gradle 6.7.1
