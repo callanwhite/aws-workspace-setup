@@ -19,6 +19,8 @@ git config --global core.editor "nano"
 #Install node/npm (v16) and angular
 curl -sL https://rpm.nodesource.com/setup_16.x | bash -
 yum install -y nodejs
+npm config set ca=“” -g
+npm config set strict-ssl false -g
 npm install -g @angular/cli
 
 #Install chromium
